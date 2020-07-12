@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Command line · React Native E-commerce App</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="We have defined some commands in the app&#x27;s package.json file to help us automatize some actions like generating a new GraphQL schema when their structure change on the server-side, generate typescript type from the Graphql app&#x27; schema. Let&#x27;s explained each command."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Command line · React Native E-commerce App"/><meta property="og:type" content="website"/><meta property="og:url" content="https://huniqcast.github.io/rn-ecommerce-doc/"/><meta property="og:description" content="We have defined some commands in the app&#x27;s package.json file to help us automatize some actions like generating a new GraphQL schema when their structure change on the server-side, generate typescript type from the Graphql app&#x27; schema. Let&#x27;s explained each command."/><meta property="og:image" content="https://huniqcast.github.io/rn-ecommerce-doc/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://huniqcast.github.io/rn-ecommerce-doc/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/rn-ecommerce-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rn-ecommerce-doc/js/scrollSpy.js"></script><link rel="stylesheet" href="/rn-ecommerce-doc/css/main.css"/><script src="/rn-ecommerce-doc/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rn-ecommerce-doc/"><img class="logo" src="/rn-ecommerce-doc/img/favicon.png" alt="React Native E-commerce App"/><h2 class="headerTitleWithLogo">React Native E-commerce App</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/rn-ecommerce-doc/docs/installation" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/project-structure">Project Structure</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rn-ecommerce-doc/docs/command-line">Command line</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/graphql-part">GraphQL part</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/react-native">The App</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Command line</h1></header><article><div><span><p>We have defined some commands in the app's package.json file to help us automatize some actions like generating a new GraphQL schema when their structure change on the server-side, generate typescript type from the Graphql app' schema. Let's explained each command.</p>
+<pre><code class="hljs css language-bash">yarn start
+</code></pre>
+<p>Help us to start the metro bundler</p>
+<pre><code class="hljs css language-bash">yarn <span class="hljs-built_in">test</span>
+</code></pre>
+<p>To test components</p>
+<pre><code class="hljs css language-bash">yarn <span class="hljs-built_in">test</span>:watch
+</code></pre>
+<p>Help to watch for modification files and re-run tests if necessary</p>
+<pre><code class="hljs css language-bash">yarn lint
+</code></pre>
+<p>For linting our code</p>
+<pre><code class="hljs css language-bash">yarn shake-android
+</code></pre>
+<p>Help to reload android emulator as needed.</p>
+<pre><code class="hljs css language-bash">yarn download-schema
+</code></pre>
+<p>Help to download the graphql schema</p>
+<pre><code class="hljs css language-bash">yarn generate-type
+</code></pre>
+<p>Help to automatically generate the typescript type of the graphql app' schema</p>
+<pre><code class="hljs css language-bash">yarn generate
+</code></pre>
+<p>Help to generate meta graphql informations to help us use fragments in our graphql's
+queries.</p>
+<pre><code class="hljs css language-bash">yarn android
+</code></pre>
+<p>Help to run android app in a phone or in a android emulator</p>
+<pre><code class="hljs css language-bash">yarn ios
+</code></pre>
+<p>Help to run ios app.</p>
+<p>You can use other commands not specify in the script of the app's package.json file.
+Like detox, if you install it globally it will help you, you can modify the detox configuration
+in the package.json file and run an e2e test like:</p>
+<pre><code class="hljs css language-bash">detox
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rn-ecommerce-doc/docs/project-structure"><span class="arrow-prev">← </span><span>Project Structure</span></a><a class="docs-next button" href="/rn-ecommerce-doc/docs/graphql-part"><span class="function-name-prevnext">GraphQL part</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><a href="https://www.huniqcast.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/rn-ecommerce-doc/img/oss_logo.png" alt="Huniqcast"/></a><section class="copyright">Copyright © 2020 Huniqcast</section></footer></div></body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>GraphQL part · React Native E-commerce App</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="We have used a GraphQL with apollo-graphql to fetch data from the server instead of the Wordpress Rest API. So you need to understand how GraphQL works to be able to modify and add new queries. All the basics of GraphQL are explained in this [link](https://www.howtographql.com/) which is a good start to mastery all you need."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="GraphQL part · React Native E-commerce App"/><meta property="og:type" content="website"/><meta property="og:url" content="https://huniqcast.github.io/rn-ecommerce-doc/"/><meta property="og:description" content="We have used a GraphQL with apollo-graphql to fetch data from the server instead of the Wordpress Rest API. So you need to understand how GraphQL works to be able to modify and add new queries. All the basics of GraphQL are explained in this [link](https://www.howtographql.com/) which is a good start to mastery all you need."/><meta property="og:image" content="https://huniqcast.github.io/rn-ecommerce-doc/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://huniqcast.github.io/rn-ecommerce-doc/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/rn-ecommerce-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rn-ecommerce-doc/js/scrollSpy.js"></script><link rel="stylesheet" href="/rn-ecommerce-doc/css/main.css"/><script src="/rn-ecommerce-doc/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rn-ecommerce-doc/"><img class="logo" src="/rn-ecommerce-doc/img/favicon.png" alt="React Native E-commerce App"/><h2 class="headerTitleWithLogo">React Native E-commerce App</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/rn-ecommerce-doc/docs/installation" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/project-structure">Project Structure</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/command-line">Command line</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rn-ecommerce-doc/docs/graphql-part">GraphQL part</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/react-native">The App</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">GraphQL part</h1></header><article><div><span><p>We have used a GraphQL with apollo-graphql to fetch data from the server instead of the Wordpress Rest API. So you need to understand how GraphQL works to be able to modify and add new queries. All the basics of GraphQL are explained in this <a href="https://www.howtographql.com/">link</a> which is a good start to mastery all you need.</p>
+<p>You can also watch to the followings youtube videos we found interesting:</p>
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/VjXb3PRL9WI" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/7wzR4Ig5pTI" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/anW5Qpuh5kI" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+<p>As you may have seen exploring the app's file structure we defined all the graphql queries for a feature into a file
+called query.ts.</p>
+<p><img src="/rn-ecommerce-doc/docs/assets/graphql-query-ts.png" alt="graphql-query"></p>
+<p>And all the typescript types for each query defined in this file are generated into a folder named types.</p>
+<p>Let's explore a GraphQL query from the feed screen, which fetch shoes from the woocommerce backend that uses wp-graphql and wp-graphql-woocommerce plugins to handle this query.</p>
+<hr>
+<blockquote>
+<p>All constant names are in camelcase and end with the word QUERY/UPDATE/SUBSCRIPTION, it starts with the Http's method name in camelcase deciding which action this query intended. The GraphQL query inside the gql string parameter should be the name of the constant without the word QUERY/UPDATE/SUBSCRIPTION at the end and the Http's method at the beginning. For fragment constants names, they end with FRAGMENTS and start with the name of the type its fields refer.</p>
+</blockquote>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">const</span> PRODUCT_FRAGMENTS = {
+  fragments: {
+    fields: gql
+      fragment ProductsDocumentFields on Product {
+        shoes_details {
+          make
+          model
+        }
+        id
+        name
+        productId
+        image {
+          mediaItemUrl
+        }
+        averageRating
+        ... on SimpleProduct {
+          price
+          regularPrice
+          salePrice
+        }
+        ... on VariableProduct {
+          price
+          regularPrice
+          salePrice
+        }
+      }
+    ,
+  },
+};
+
+<span class="hljs-keyword">const</span> GET_PRODUCTS_QUERY = gql
+  query PRODUCTS(
+    $first: Int
+    $tag: <span class="hljs-built_in">String</span>
+    $category: <span class="hljs-built_in">String</span>
+    $after: <span class="hljs-built_in">String</span>
+    $search: <span class="hljs-built_in">String</span>
+    $minPrice: Float
+    $maxPrice: Float
+    $taxonomyFilter: [ProductTaxonomyFilterRelationInput]
+    $include: [Int]
+  ) {
+    products(
+      first: $first
+      after: $after
+      where: {
+        tag: $tag
+        category: $category
+        search: $search
+        minPrice: $minPrice
+        maxPrice: $maxPrice
+        taxonomyFilter: $taxonomyFilter
+        include: $include
+      }
+    ) {
+      edges {
+        node {
+          ...ProductsDocumentFields
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+        hasPreviousPage
+        startCursor
+      }
+    }
+  }
+
+  ${ProductsDocument.fragments.fields}
+;
+</code></pre>
+<p>This query uses a fragment to load all the data needed to display the necessary information of a product into the feed screens. If you have a better understanding of GraphQL, you will be able to modify this query and load other information you may need for your specific needs.</p>
+<blockquote>
+<p>NOTE: If you define a new graphql query, do not forget to run the command:</p>
+</blockquote>
+<pre><code class="hljs css language-bash">yarn generate-types
+</code></pre>
+<blockquote>
+<p>to get all the typescript types from this query as it will make you life easier when you will use it in your components.</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rn-ecommerce-doc/docs/command-line"><span class="arrow-prev">← </span><span>Command line</span></a><a class="docs-next button" href="/rn-ecommerce-doc/docs/react-native"><span>The App</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><a href="https://www.huniqcast.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/rn-ecommerce-doc/img/oss_logo.png" alt="Huniqcast"/></a><section class="copyright">Copyright © 2020 Huniqcast</section></footer></div></body></html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>The App · React Native E-commerce App</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="We have developed this app using the best components today to build a react native app. And we have made each component using the functional and hook in our codebase. In this section, we will explain the anatomy of each feature and how we have internationalized this app to make it easy to add another language as now we have only English and French."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="The App · React Native E-commerce App"/><meta property="og:type" content="website"/><meta property="og:url" content="https://huniqcast.github.io/rn-ecommerce-doc/"/><meta property="og:description" content="We have developed this app using the best components today to build a react native app. And we have made each component using the functional and hook in our codebase. In this section, we will explain the anatomy of each feature and how we have internationalized this app to make it easy to add another language as now we have only English and French."/><meta property="og:image" content="https://huniqcast.github.io/rn-ecommerce-doc/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://huniqcast.github.io/rn-ecommerce-doc/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/rn-ecommerce-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/rn-ecommerce-doc/js/scrollSpy.js"></script><link rel="stylesheet" href="/rn-ecommerce-doc/css/main.css"/><script src="/rn-ecommerce-doc/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/rn-ecommerce-doc/"><img class="logo" src="/rn-ecommerce-doc/img/favicon.png" alt="React Native E-commerce App"/><h2 class="headerTitleWithLogo">React Native E-commerce App</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/rn-ecommerce-doc/docs/installation" target="_self">Docs</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Getting Started</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Getting Started</h3><ul class=""><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/installation">Installation</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/project-structure">Project Structure</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/command-line">Command line</a></li><li class="navListItem"><a class="navItem" href="/rn-ecommerce-doc/docs/graphql-part">GraphQL part</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/rn-ecommerce-doc/docs/react-native">The App</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">The App</h1></header><article><div><span><p>We have developed this app using the best components today to build a react native app. And we have made each component using the functional and hook in our codebase. In this section, we will explain the anatomy of each feature and how we have internationalized this app to make it easy to add another language as now we have only English and French.</p>
+<h2><a class="anchor" aria-hidden="true" id="translation"></a><a href="#translation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Translation</h2>
+<p>Apps related to e-commerce have to be accessible in many languages. To achieve this goal we have used a plugin called react-i18next. It helps us implement internationalization easily. To make it even easier for translators, we have grouped string by features as you can see in the picture. This way it is easy to find words related to a feature.</p>
+<p><img src="/rn-ecommerce-doc/docs/assets/translation-folder.png" alt="translation-folder"></p>
+<p>To use these translated strings, we set up a json as described by the following code snippets:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> home = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./home.json"</span>);
+<span class="hljs-keyword">const</span> feed = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./feed.json"</span>);
+<span class="hljs-keyword">const</span> detail = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./detail.json"</span>);
+<span class="hljs-keyword">const</span> cart = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./cart.json"</span>);
+<span class="hljs-keyword">const</span> drawer = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./drawer.json"</span>);
+<span class="hljs-keyword">const</span> checkout = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./checkout.json"</span>);
+<span class="hljs-keyword">const</span> profil = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./profil.json"</span>);
+<span class="hljs-keyword">const</span> login = <span class="hljs-built_in">require</span>(<span class="hljs-string">"./login.json"</span>);
+
+<span class="hljs-keyword">const</span> languageConfig = {
+  home,
+  feed,
+  detail,
+  cart,
+  drawer,
+  checkout,
+  profil,
+  login,
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> languageConfig;
+</code></pre>
+<p>This JSON is passed to the react-i18next plugin which handles the loading and offers a well-done API through the useTranslation hook to load different namespace like home, feed, or detail like this:</p>
+<pre><code class="hljs css language-javascript">useTranslation(<span class="hljs-string">'home'</span>) or useTranslation(<span class="hljs-string">'feed'</span>)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="feature-anatomy"></a><a href="#feature-anatomy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Feature anatomy</h2>
+<p>Each dynamic feature in this app is composed of hooks, react/react-native components composed to make it usable in resolving the feature's problem and theme which is used to theming each component of this app according to material design system with the help of the react-native-paper UI framework</p>
+<h3><a class="anchor" aria-hidden="true" id="graphql-hook"></a><a href="#graphql-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL hook</h3>
+<p>Which help to get information from the server and modify data in the database on the server-side</p>
+<ul>
+<li><strong>GraphQL query</strong></li>
+</ul>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { loading, error, data, refetch, networkStatus, fetchMore } = useQuery&lt;
+  PRODUCTS,
+  PRODUCTSVariables
+&gt;(GET_PRODUCTS_QUERY, {
+  <span class="hljs-attr">variables</span>: {
+    <span class="hljs-attr">first</span>: <span class="hljs-number">25</span>,
+    category,
+    tag,
+  },
+  <span class="hljs-attr">notifyOnNetworkStatusChange</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">errorPolicy</span>: <span class="hljs-string">"all"</span>,
+});
+</code></pre>
+<ul>
+<li><strong>GraphQL mutation</strong></li>
+</ul>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> [addToCart, { loading, error, data }] =
+    useMutation&lt;ADD_PRODUCT_TO_CART, ADD_PRODUCT_TO_CARTVariables&gt;(
+        ADD_TO_CART_MUTATION,
+    )
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="transalation-hook"></a><a href="#transalation-hook" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transalation hook</h3>
+<p>which help in the internationalization of screens</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { t } = useTranslation(<span class="hljs-string">"detail"</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="custom-hooks"></a><a href="#custom-hooks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>custom hooks</h3>
+<p>which help us in abstracting and cleaning our codebase.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> {
+  feedContextValue,
+  isFilter,
+  filterState,
+  isLoading,
+  onResetFilter,
+  openFilter,
+  hasError,
+  feeds,
+  fetchMoreFeeds,
+  refresh,
+} = useFeeds({ category, tag, t, filterValues });
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="reactreact-native-component"></a><a href="#reactreact-native-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>react/react native component:</h3>
+<p>This part should be self-explanatory by exploring the app's codebase.</p>
+<h3><a class="anchor" aria-hidden="true" id="theming"></a><a href="#theming" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Theming</h3>
+<p>We decide to use the material design system to make this app aesthetic. To help us in this task we have used the react-native-paper UI framework which is a great plugin if you decide to build a react native app related to the material design system. You can learn more about this framework through this <a href="https://callstack.github.io/react-native-paper/">link</a></p>
+<p>Some feature need to be accessible from the drawer and can be related to the authenticated user.</p>
+<h2><a class="anchor" aria-hidden="true" id="drawer"></a><a href="#drawer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Drawer</h2>
+<p>As you can see we have set up a drawer system to handle multiple menus in this app. We have done this using the react-navigation plugin.
+To add a new menu you should first read the official documentation about drawer navigation describe in this <a href="https://reactnavigation.org/docs/3.x/drawer-based-navigation">link</a></p>
+<p>To make the drawer menu's title easy to translate in multiple languages and be able to handle the different menu between an authenticated user and an unauthenticated user we have defined some useful components:</p>
+<ul>
+<li><strong>drawerNavigationOptions</strong></li>
+</ul>
+<p>It helps us to abstract the definition of a different menu as an example let's examine the following sample code :</p>
+<pre><code class="hljs css language-javascript">drawerNavigationOptions({
+  <span class="hljs-attr">i18nKey</span>: <span class="hljs-string">"wishlist_title"</span>,
+  <span class="hljs-attr">namespace</span>: <span class="hljs-string">"profil"</span>,
+  <span class="hljs-attr">iconName</span>: <span class="hljs-string">"list"</span>,
+});
+</code></pre>
+<p>This function call returns all options necessary to define the wishlist menu with its corresponding icon and its translated title.</p>
+<ul>
+<li><strong>DrawerLabel</strong></li>
+</ul>
+<p>It helps translated the title and handle the state of a menu.</p>
+<ul>
+<li><strong>DrawerIcon</strong></li>
+</ul>
+<p>It helps to abstract the icon of the menu.</p>
+<p>To add a new menu in the drawer, examine the MainNavigator.tsx file inside the navigation folder. You will see the DrawerFeedStack component. Add a new option in the JSON configuration, define the icon, and add the title of the menu in the corresponding translated file.</p>
+<p>If your new menu is related to the authenticated user, and should not be displayed when the user is unauthenticated, open the config.ts inside the navigation folder and add its JSON config key to the corresponding key &quot;authenticated_menus&quot; or &quot;unauthenticated_menus&quot;.</p>
+<p>After this step, you should see this new menu display in the drawer.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/rn-ecommerce-doc/docs/graphql-part"><span class="arrow-prev">← </span><span class="function-name-prevnext">GraphQL part</span></a><a class="docs-next button" href="/rn-ecommerce-doc/docs/interfac-home"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#translation">Translation</a></li><li><a href="#feature-anatomy">Feature anatomy</a><ul class="toc-headings"><li><a href="#graphql-hook">GraphQL hook</a></li><li><a href="#transalation-hook">Transalation hook</a></li><li><a href="#custom-hooks">custom hooks</a></li><li><a href="#reactreact-native-component">react/react native component:</a></li><li><a href="#theming">Theming</a></li></ul></li><li><a href="#drawer">Drawer</a></li></ul></nav></div><footer class="nav-footer" id="footer"><a href="https://www.huniqcast.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/rn-ecommerce-doc/img/oss_logo.png" alt="Huniqcast"/></a><section class="copyright">Copyright © 2020 Huniqcast</section></footer></div></body></html>
