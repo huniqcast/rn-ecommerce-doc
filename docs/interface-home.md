@@ -1,15 +1,14 @@
 ---
-id: home-interface
+id: interface-home
 title: Home
 sidebar_label: Home
 ---
 
-The home screen is represented by the following picture: 
-
+The home screen is represented by the following picture:
 
 ![React Native E-commerce Homepage Template](assets/Homepage-documented.png)
 
-As you can see this picture can be built using the mainly 4 components : 
+As you can see this picture can be built using the mainly 4 components :
 
 1. HeroArea
 2. Typography

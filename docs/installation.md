@@ -4,33 +4,54 @@ title: installation
 sidebar_label: Installation
 ---
 
-To get started with this template you need to first, follows instructions of the React Native CLI Quickstart tab from [React Native documentation](https://facebook.github.io/react-native/docs/getting-started).
+To set up your environment you can follow the official Facebook tutorial through this [link](https://reactnative.dev/docs/environment-setup) and
+use instructions from the tab "React Native CLI Quickstart" for your corresponding OS.
 
-Once your react native environement is setup, you can unzip the package and run the following commands:
+Additionally, if you need you can follow one of these videos, which we found instructive for new coming in react native ecosystem who wants to understand which tools are involved.
+
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/gQf60JPKcg4" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/yOAWwyp-vZ0" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/WnS7dcY5Hys" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+
+<figure class="video-container">
+<iframe src="//www.youtube.com/embed/0-S5a0eXPoc" frameborder="0" allowfullscreen width="100%" height="450"></iframe>
+</figure>
+<br>
+
+Once your react native development environment is setup, you can follow these setps:
+
+- Unzip the react-native-app file downloaded from codecanyon
+
+- Change directory to be in the "react-native-app" folder
+
+- Install your dependencies using the following command
 
 ```bash
-yarn install
+ yarn install
 ```
 
-This command will install all the dependencies needed by this template.
+- Setup all your environment variable inside the .env in the root to be conform to your local environment.
 
-After that you need to setup your local woocommerce website which is included in the package and import all the data which allow you to test the app.
-For that you need to have a web server install and setup. In our case we used Wampserver for local development.
-
-Following these steps, you should be able to run our react native e-commerce template using the following command:
+- Finally you can run the app using the following commands:
 
 ```bash
-yarn start
+ yarn start #to run your js bundle
 ```
 
-and inside another terminal run and install the app inside an emulator or a device
+then
 
 ```bash
-react-native run-android
+ yarn android or yarn ios
 ```
 
-After that our can navigate and explore this template. For get deep understanding of each interface and thus each components which compose
-it, you can explore all components inside the API.
-
-These components are organized following each interface and the shared components have their own menu. This way we hope you will be able to
-really use this template quickly and correctly.
+> Hint: To finalize the payment in the checkout process you should follow the stripe testing recommendations. https://stripe.com/docs/testing

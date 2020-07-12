@@ -1,6 +1,12 @@
 {
   "docs": {
-    "Getting Started": ["installation", "project-structure"],
-    "Screens": ["interface-home"]
+    "Getting Started": [
+      "installation",
+      "project-structure",
+      "command-line",
+      "graphql-part",
+      "react-native"
+    ],
+    "Screens": ["interfac-home"]
   }
 }
